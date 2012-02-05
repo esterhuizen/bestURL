@@ -1,9 +1,25 @@
-This project serves application developers by providing the URL equivalent across various platforms and applications. As long as you know one type of platform's URL, you can find all other platforms' URLs using the hosted service at http://xendig.com/api/besturl
-
-For example: you're writing a web app and you'd like all IOS devices that access your site to use fb:// instead of the web URL. You provide the web url and all other platform formats are returned. Now all you need to do is include code to decide on the best URL to use on the specific platform.
+This project is the source code for an API that provides the cross platform URL equivalent for URLs. For example: you're writing a web app and you want all IOS devices that access your site to use a) Facebook app instead of the browser (fb:// instead of http://) or b) failover to the browser if the app isn't installed.
 
 This project is hosted here: http://xendig.com/api/besturl 
 
+
+SUMMARY OF USAGE
+
+You provide the web url and the service returns other formats.
+
+
 USAGE
 
-GET on xendig.com/api/besturl to get a list of commmands
+GET on xendig.com/api/besturl - lists all options. 
+
+- url: url that you want converted.
+- q: query type. Available queries: ios, android, www
+
+GET on xendig.com/api/besturl?url=fb://profile/myname - retrieves all formats for url argument. 
+Reply is JSON object:
+{ success: true, data: ['http://sample', 'fb://samplet', 'other formats...' ]}
+
+GET on xendig.com/api/besturl?url=fb://profile/myname - retrieves all formats for url argument. 
+Reply is JSON object:
+{ success: true, data: ['http://sample', 'fb://samplet', 'other formats...' ]}
+
